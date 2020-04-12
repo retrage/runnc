@@ -71,3 +71,40 @@ func CreateIso(dir string, target *string) (string, error) {
 
 	return fname, nil
 }
+
+// CreateExt4 creates ext4 raw disk image from the dir argument
+func CreateExt4(dir string, target *string) (string, error) {
+	var fname string
+
+	if target == nil {
+		f, err := ioutil.TempFile("/tmp", "nabla")
+		if err != nil {
+			return "", err
+		}
+
+		fname = f.Name()
+		if err := f.Close(); err != nil {
+			return "", err
+		}
+	} else {
+		var err error
+		fname, err = filepath.Abs(*target)
+		if err != nil {
+			return "", errors.Wrap(err, "Unable to resolve abs target path")
+		}
+	}
+
+	absDir, err := filepath.Abs(dir)
+	if err != nil {
+		return "", errors.Wrap(err, "Unable to resolve abs dir path")
+	}
+
+	cmd := exec.Command("virt-make-fs", "-F", "raw", "-t", "ext4",
+		absDir, fname)
+	err = cmd.Run()
+	if err != nil {
+		return "", errors.Wrap(err, "Unable to run virt-make-fs command")
+	}
+
+	return fname, nil
+}

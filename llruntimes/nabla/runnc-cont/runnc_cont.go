@@ -133,10 +133,7 @@ func setupDisk(path string) (string, error) {
 }
 
 func (r *RunncCont) Run() error {
-	var (
-		mac string
-		err error
-	)
+	var err error
 
 	disk, err := setupDisk(r.Disk)
 	if err != nil {
@@ -153,31 +150,16 @@ func (r *RunncCont) Run() error {
 		r.UniKernelBin = unikernel
 	}
 
-	unikernelArgs, err := CreateRumprunArgs(r.IPAddress, r.IPMask, r.Gateway, "/",
-		r.Env, r.WorkingDir, r.UniKernelBin, r.NablaRunArgs)
-	if err != nil {
-		return fmt.Errorf("could not create the unikernel cmdline: %v\n", err)
-	}
-
 	var args []string
-	if mac != "" {
-		args = []string{r.NablaRunBin,
-			"--x-exec-heap",
-			"--mem=" + strconv.FormatInt(r.Memory, 10),
-			"--net-mac=" + mac,
-			"--net=" + r.Tap,
-			"--disk=" + disk,
-			r.UniKernelBin,
-			unikernelArgs}
-	} else {
-		args = []string{r.NablaRunBin,
-			"--x-exec-heap",
-			"--mem=" + strconv.FormatInt(r.Memory, 10),
-			"--net=" + r.Tap,
-			"--disk=" + disk,
-			r.UniKernelBin,
-			unikernelArgs}
-	}
+    args = []string{r.NablaRunBin,
+        "--mem=" + strconv.FormatInt(r.Memory, 10),
+        "--net:tap=" + r.Tap,
+        "--block:rootfs=" + disk,
+        r.UniKernelBin}
+    args = append(args, "__RUMP_FDINFO_NET_tap=4")
+	args = append(args, r.Env...)
+	args = append(args, "--")
+	args = append(args, r.NablaRunArgs...)
 
 	fmt.Printf("nabla-run arg %s\n", args)
 

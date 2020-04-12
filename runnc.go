@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fsH, err := llfs.NewISOFsHandler()
+	fsH, err := llfs.NewExt4FsHandler()
 	if err != nil {
 		panic(err)
 	}
