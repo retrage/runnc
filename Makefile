@@ -77,10 +77,10 @@ build/runnc: godep runnc.go
 	GOOS=linux GOARCH=${GOARCH} $(GO_BIN) build -o $@ .
 
 solo5/tenders/spt/solo5-spt: FORCE
-	make -C solo5
+	(cd solo5 && ./configure.sh && make)
 
 solo5/tests/test_hello/test_hello.spt: FORCE
-	make -C solo5
+	(cd solo5 && ./configure.sh && make)
 
 .PHONY: FORCE
 
