@@ -21,7 +21,7 @@ import (
 	"os"
 	"time"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 )
 
 func newStateCmd(llcHandler ll.RunllcHandler, sf stringSubFunc) cli.Command {

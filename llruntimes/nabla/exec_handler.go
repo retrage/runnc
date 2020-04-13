@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nabla-containers/runnc/libcontainer/configs"
-	ll "github.com/nabla-containers/runnc/llif"
-	"github.com/nabla-containers/runnc/llruntimes/nabla/runnc-cont"
+	"github.com/retrage/runnc/libcontainer/configs"
+	ll "github.com/retrage/runnc/llif"
+	"github.com/retrage/runnc/llruntimes/nabla/runnc-cont"
 	"github.com/pkg/errors"
 )
 

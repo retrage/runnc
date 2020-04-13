@@ -1,7 +1,7 @@
 package network
 
 import (
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 )
 
 type noopNetworkHandler struct{}

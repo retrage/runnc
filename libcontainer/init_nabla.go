@@ -21,8 +21,8 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/nabla-containers/runnc/libcontainer/configs"
-	ll "github.com/nabla-containers/runnc/llif"
+	"github.com/retrage/runnc/libcontainer/configs"
+	ll "github.com/retrage/runnc/llif"
 	spec "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/vishvananda/netns"
 )

@@ -24,8 +24,8 @@ import (
 	"regexp"
 	"syscall"
 
-	"github.com/nabla-containers/runnc/libcontainer/configs"
-	ll "github.com/nabla-containers/runnc/llif"
+	"github.com/retrage/runnc/libcontainer/configs"
+	ll "github.com/retrage/runnc/llif"
 
 	"github.com/pkg/errors"
 )

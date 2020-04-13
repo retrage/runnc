@@ -21,8 +21,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/nabla-containers/runnc/libcontainer"
-	ll "github.com/nabla-containers/runnc/llif"
+	"github.com/retrage/runnc/libcontainer"
+	ll "github.com/retrage/runnc/llif"
 	"github.com/urfave/cli"
 )
 

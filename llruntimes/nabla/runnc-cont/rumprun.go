@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nabla-containers/runnc/nabla-lib/network"
+	"github.com/retrage/runnc/nabla-lib/network"
 )
 
 type rumpArgsNetwork struct {

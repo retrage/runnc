@@ -20,7 +20,7 @@ import (
 	"os"
 	"strings"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"

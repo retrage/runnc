@@ -27,8 +27,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/nabla-containers/runnc/libcontainer/configs"
-	ll "github.com/nabla-containers/runnc/llif"
+	"github.com/retrage/runnc/libcontainer/configs"
+	ll "github.com/retrage/runnc/llif"
 	"github.com/opencontainers/runc/libcontainer/system"
 	"github.com/opencontainers/runc/libcontainer/utils"
 	"github.com/pkg/errors"

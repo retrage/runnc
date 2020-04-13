@@ -3,7 +3,7 @@ package fs
 import (
 	"os"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 )
 
 type noopFsHandler struct{}

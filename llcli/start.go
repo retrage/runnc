@@ -16,11 +16,11 @@ package llcli
 
 import (
 	"fmt"
-	"github.com/nabla-containers/runnc/libcontainer"
+	"github.com/retrage/runnc/libcontainer"
 	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 )
 
 func newStartCmd(llcHandler ll.RunllcHandler, sf stringSubFunc) cli.Command {

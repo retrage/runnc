@@ -23,7 +23,7 @@ import (
 	"strings"
 	"syscall"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 )
 
 var signalMap = map[string]syscall.Signal{

@@ -1,4 +1,4 @@
-module github.com/nabla-containers/runnc
+module github.com/retrage/runnc
 
 go 1.12
 

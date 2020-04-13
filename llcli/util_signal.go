@@ -19,7 +19,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/nabla-containers/runnc/libcontainer"
+	"github.com/retrage/runnc/libcontainer"
 	"github.com/opencontainers/runc/libcontainer/system"
 	"github.com/opencontainers/runc/libcontainer/utils"
 	"github.com/sirupsen/logrus"

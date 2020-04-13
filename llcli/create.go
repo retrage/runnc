@@ -17,7 +17,7 @@ package llcli
 import (
 	"os"
 
-	ll "github.com/nabla-containers/runnc/llif"
+	ll "github.com/retrage/runnc/llif"
 	"github.com/urfave/cli"
 )
 

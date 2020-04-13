@@ -15,7 +15,7 @@
 package libcontainer
 
 import (
-	"github.com/nabla-containers/runnc/libcontainer/configs"
+	"github.com/retrage/runnc/libcontainer/configs"
 )
 
 type Factory interface {

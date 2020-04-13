@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"syscall"
 
-	ll "github.com/nabla-containers/runnc/llif"
-	"github.com/nabla-containers/runnc/nabla-lib/network"
+	ll "github.com/retrage/runnc/llif"
+	"github.com/retrage/runnc/nabla-lib/network"
 	"github.com/pkg/errors"
 )
 

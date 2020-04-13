@@ -21,9 +21,9 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/nabla-containers/runnc/libcontainer"
-	"github.com/nabla-containers/runnc/libcontainer/configs"
-	ll "github.com/nabla-containers/runnc/llif"
+	"github.com/retrage/runnc/libcontainer"
+	"github.com/retrage/runnc/libcontainer/configs"
+	ll "github.com/retrage/runnc/llif"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"

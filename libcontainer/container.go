@@ -18,7 +18,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/nabla-containers/runnc/libcontainer/configs"
+	"github.com/retrage/runnc/libcontainer/configs"
 )
 
 // Status is the status of a container.

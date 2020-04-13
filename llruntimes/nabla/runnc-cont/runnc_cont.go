@@ -26,7 +26,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/nabla-containers/runnc/nabla-lib/storage"
+	"github.com/retrage/runnc/nabla-lib/storage"
 	spec "github.com/opencontainers/runtime-spec/specs-go"
 )
 

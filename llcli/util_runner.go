@@ -15,7 +15,7 @@
 package llcli
 
 import (
-	"github.com/nabla-containers/runnc/libcontainer"
+	"github.com/retrage/runnc/libcontainer"
 	"github.com/opencontainers/runtime-spec/specs-go"
 
 	"fmt"
