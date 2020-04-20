@@ -22,9 +22,31 @@ package storage
 import (
 	"github.com/pkg/errors"
 	"io/ioutil"
+	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 )
+
+// DirSize gets total size of dir argument
+func DirSize(dir string) (uint64, error) {
+	var size int64
+	err := filepath.Walk(dir, func(_ string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() {
+			size += info.Size()
+		}
+		return err
+	})
+	return uint64(size), err
+}
+
+// AlignUp returns aligned value
+func AlignUp(value uint64, align uint64) uint64 {
+	return (value + align - 1) & ^(align - 1)
+}
 
 // CreateDummy creates a dummy file in /tmp
 func CreateDummy() (string, error) {
@@ -99,8 +121,17 @@ func CreateExt4(dir string, target *string) (string, error) {
 		return "", errors.Wrap(err, "Unable to resolve abs dir path")
 	}
 
+	dirSize, err := DirSize(absDir)
+	if err != nil {
+		return "", errors.Wrap(err, "Unable to get size of target dir")
+	}
+
+	const unitBytes = 0x100000 // 1MB
+	const extraSpace = 16 // 16MB extra space
+	dirSize = AlignUp(dirSize, unitBytes) / unitBytes + extraSpace
+
 	cmd := exec.Command("virt-make-fs", "-F", "raw", "-t", "ext4",
-		absDir, fname)
+		"-s", strconv.FormatUint(dirSize, 10) + "M", absDir, fname)
 	err = cmd.Run()
 	if err != nil {
 		return "", errors.Wrap(err, "Unable to run virt-make-fs command")
