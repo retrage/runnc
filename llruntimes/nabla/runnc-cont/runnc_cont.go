@@ -160,6 +160,7 @@ func (r *RunncCont) Run() error {
 
 	var args []string
 	args = []string{r.NablaRunBin,
+		"--x-exec-heap",
 		"--mem=" + strconv.FormatInt(r.Memory, 10),
 		"--net:tap=" + r.Tap,
 		"--block:rootfs=" + disk,
